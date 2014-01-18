@@ -10,10 +10,12 @@ MYHOME=~bhawkins
 test -s ~/.alias && . ~/.alias || true
 
 # Interactive prompt.
-if [ -f $MYHOME/.bash_prompt ] ; then
-    source $MYHOME/.bash_prompt
-else
-    export PS1="[\!] \h:\W> "
+if [ -n "$PS1" ]; then
+    if [ -f $MYHOME/.bash_prompt ]; then
+        source $MYHOME/.bash_prompt
+    else
+        export PS1="[\!] \h:\W> "
+    fi
 fi
 
 # Make directory listings colorful.
