@@ -20,12 +20,16 @@ fi
 
 # Make directory listings colorful.
 # Detect which `ls` flavor is in use
-if ls --color > /dev/null 2>&1; then # GNU `ls`
-        colorflag="--color=auto"
-else # OS X `ls`
-        colorflag="-G"
+if ls --color > /dev/null 2>&1; then
+    # GNU `ls`
+    alias ls="ls --color=auto"
+elif ls -G > /dev/null 2>&1 ; then
+    # OS X `ls`
+    alias ls="ls -G"
+elif [ -s $MYHOME/gnu/bin/ls ] ; then
+    # Check to see if I compiled GNU coreutils before giving up.
+    alias ls="$MYHOME/gnu/bin/ls --color=auto"
 fi
-alias ls="ls $colorflag"
 # Change directory coloring from dark blue to grey for better readability on
 # dark backgrounds.
 export LS_COLORS="ow=01;90:di=01;90"

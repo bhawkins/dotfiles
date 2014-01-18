@@ -43,8 +43,15 @@ export WHITE
 export BOLD
 export RESET
 
+# Solaris tail uses obsolete syntax.
+if [ $(uname -s) = 'SunOS' ] ; then
+    alias lastline='tail -1'
+else
+    alias lastline='tail -n1'
+fi
+
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | tail -n1) != *"working directory clean"* ]] && echo "*"
+	[[ $(git status 2> /dev/null | lastline) != *"working directory clean"* ]] && echo "*"
 }
 
 function parse_git_branch() {
