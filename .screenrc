@@ -1,0 +1,3 @@
+shell -bash
+termcapinfo xterm*|rxvt*|kterm*|Eterm* 'ti@:te@'
+altscreen on

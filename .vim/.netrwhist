@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/Users/bhawkins/src-external/gsl-1.13/multimin'
+let g:netrw_dirhist_2='/Users/bhawkins/src/angler/config'
+let g:netrw_dirhist_3='/Users/bhawkins/src/angler/src/azcomp_simple'
+let g:netrw_dirhist_4='/Users/bhawkins/src-external/nbconvert/out-basic'
+let g:netrw_dirhist_5='/Users/bhawkins/src/angler/python/angler/cython'
+let g:netrw_dirhist_6='/Users/bhawkins/gps'
+let g:netrw_dirhist_7='/Users/bhawkins/src/angler/python/angler'

@@ -1,0 +1,16 @@
+# Use Linux indent and bracket style (mostly K&R).
+--style=linux
+
+# I've got all my code in git, so saving .orig files is unnecessary.
+#--suffix=none
+
+# I want conditions and functions to have the parens padded like in GNU code:
+# "if (true) {"
+# "z = foo (x, y);"
+# However the astyle options mess up some stuff I think is fine:
+# "if ((true) && (true)) {"
+# "sizeof(int)"
+# "(double)x"
+# So leave these options out when they add more work than they save.
+#--unpad-paren
+#--pad-paren-out

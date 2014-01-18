@@ -1,0 +1,7 @@
+[diff]
+	tool = tkdiff
+[difftool]
+	prompt = false
+[user]
+	email = Brian.P.Hawkins@jpl.nasa.gov
+	name = Brian Hawkins
