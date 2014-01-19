@@ -54,6 +54,11 @@ function vw {
 export GIT_AUTHOR_NAME="Brian Hawkins"
 export GIT_AUTHOR_EMAIL="Brian.P.Hawkins@jpl.nasa.gov"
 
+# Bash completion for git.
+if [ -s /usr/local/etc/bash_completion.d/git-completion.bash ] ; then
+    source /usr/local/etc/bash_completion.d/git-completion.bash
+fi
+
 export EDITOR=/usr/bin/vim
 
 function whoson {
