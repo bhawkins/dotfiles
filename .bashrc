@@ -38,7 +38,9 @@ export LS_COLORS="ow=01;90:di=01;90"
 alias vi="vim -u $MYHOME/.vimrc"
 
 # Use sensible units for memory totals in top (too many KB!).
-alias top="top -M"
+# Oops... this isn't portable.
+# TODO Figure out how to feature test.  Redirecting always fails.
+#alias top="top -M"
 
 function vw {
    vi `which $1`
