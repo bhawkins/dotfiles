@@ -34,6 +34,8 @@ fi
 # dark backgrounds.
 export LS_COLORS="ow=01;90:di=01;90"
 
+alias ll='ls -l'
+
 # Use my vim settings even as another user.
 alias vi="vim -u $MYHOME/.vimrc"
 
