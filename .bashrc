@@ -69,3 +69,6 @@ function whoson {
 
 # Run these commands for interactive python sessions.
 export PYTHONSTARTUP=$MYHOME/.pythonstartup
+
+# Suppress annoying messages.
+dmesg -n 1
