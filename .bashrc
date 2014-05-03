@@ -71,4 +71,4 @@ function whoson {
 export PYTHONSTARTUP=$MYHOME/.pythonstartup
 
 # Suppress annoying messages.
-dmesg -n 1
+dmesg -n 1 &> /dev/null
