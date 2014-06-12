@@ -72,3 +72,8 @@ export PYTHONSTARTUP=$MYHOME/.pythonstartup
 
 # Suppress annoying messages.
 dmesg -n 1 &> /dev/null
+
+# For updating environment after re-attaching a tmux session.
+function tmux-env {
+    export $(tmux show-environment DISPLAY)
+}
