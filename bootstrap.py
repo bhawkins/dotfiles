@@ -28,6 +28,12 @@ for root, dirs, files in os.walk (os.curdir):
     if '.git' in dirs:
         dirs.remove ('.git')
 
+    for d in dirs:
+        outdir = os.path.join (os.pardir, root, d)
+        if not os.path.isdir (outdir):
+            print 'Creating directory %s' % outdir
+            os.mkdir (outdir)
+
     for newf in files:
         newf = os.path.join (root, newf)
         if not newf.startswith ('.'):
