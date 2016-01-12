@@ -77,3 +77,9 @@ dmesg -n 1 &> /dev/null
 function tmux-env {
     export $(tmux show-environment DISPLAY)
 }
+
+# Hack for using X11 with sudo.
+if [ -n "$X11_COOKIE" ] ; then
+    xauth add $X11_COOKIE
+    unset X11_COOKIE
+fi
