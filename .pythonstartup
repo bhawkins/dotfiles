@@ -2,5 +2,5 @@ import numpy as np
 import pylab as p
 import matplotlib
 p.ion()
-print 'Numpy', np.__version__
-print 'Matplotlib', matplotlib.__version__
+print('numpy {0}'.format(np.__version__))
+print('matplotlib {0}'.format(matplotlib.__version__))
