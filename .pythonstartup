@@ -1,6 +1,6 @@
 import numpy as np
-import pylab as p
 import matplotlib
+import matplotlib.pyplot as p
 p.ion()
 print('numpy {0}'.format(np.__version__))
 print('matplotlib {0}'.format(matplotlib.__version__))
