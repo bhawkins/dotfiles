@@ -74,7 +74,9 @@ if !exists("b:fortran_fixed_source")
     " Detection becomes more accurate and time-consuming if more lines
     " are checked. Increase the limit below if you keep lots of comments at
     " the very top of each file and you have a fast computer.
-    let b:lmax = 25
+    "bph We have lots of comments.
+    "let b:lmax = 25
+    let b:lmax = 200
     if ( b:lmax > line("$") )
       let b:lmax = line("$")
     endif
