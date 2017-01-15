@@ -1,0 +1,29 @@
+$PROMPT='''{env_name:{} }{BOLD_GREEN}{user}@{hostname}{BOLD_BLUE} {cwd}{branch_color}{curr_branch: {}}{NO_COLOR}
+{BOLD_BLUE}{prompt_end}{NO_COLOR} '''
+
+$EDITOR = 'vi'
+
+#$XONSH_COLOR_STYLE = 'paraiso-dark'
+$XONSH_COLOR_STYLE = 'monokai'
+
+# Get ssh-agent environment variables.
+import os
+from stat import S_IRUSR, S_IWUSR
+from xonsh.foreign_shells import foreign_shell_data
+$SSH_ENV = os.path.join($HOME, '.ssh', 'env')
+
+def start_ssh_agent():
+    e, a = foreign_shell_data('bash', prevcmd='eval $(ssh-agent -s)')
+    with open($SSH_ENV, 'w') as f:
+        for k in ('SSH_AGENT_PID', 'SSH_AUTH_SOCK'):
+            s = '{env}["{key}"] = "{val}"\n'
+            f.write(s.format(key=k, val=e[k], env='${...}'))
+    os.chmod($SSH_ENV, S_IRUSR|S_IWUSR)
+    $[source $SSH_ENV]
+
+if os.path.exists($SSH_ENV):
+    $[source $SSH_ENV]
+    if !(ps $SSH_AGENT_PID).returncode != 0:
+        start_ssh_agent()
+else:
+    start_ssh_agent()
