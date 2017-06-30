@@ -51,7 +51,7 @@ else
 fi
 
 function parse_git_dirty() {
-	[[ $(git status 2> /dev/null | lastline) != *"working directory clean"* ]] && echo "*"
+	[[ $(git status 2> /dev/null | lastline) != *"working"*"clean"* ]] && echo "*"
 }
 
 function parse_git_branch() {
