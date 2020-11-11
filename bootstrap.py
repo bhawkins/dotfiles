@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-
+from __future__ import print_function
 import os
 import sys
 import subprocess as sub
 import hashlib
 import shutil
+from six.moves import input
 
 noprompt = '-f' in sys.argv
 
@@ -15,12 +16,12 @@ def md5 (filename):
     if not os.path.exists (filename):
         return ''
     m = hashlib.md5 ()
-    with open (filename) as f:
+    with open (filename, 'rb') as f:
         m.update (f.read ())
     return m.digest ()
 
 def prompt (msg):
-    reply = raw_input (msg)
+    reply = input (msg)
     return reply.lower().startswith ('y')
 
 for root, dirs, files in os.walk (os.curdir):
@@ -31,7 +32,7 @@ for root, dirs, files in os.walk (os.curdir):
     for d in dirs:
         outdir = os.path.join (os.pardir, root, d)
         if not os.path.isdir (outdir):
-            print 'Creating directory %s' % outdir
+            print('Creating directory %s' % outdir)
             os.mkdir (outdir)
 
     for newf in files:
@@ -42,7 +43,7 @@ for root, dirs, files in os.walk (os.curdir):
 
         oldf = os.path.join (os.pardir, newf)
         if not os.path.exists (oldf):
-            print 'Installing %s' % oldf
+            print('Installing %s' % oldf)
             shutil.copy (newf, oldf)
             continue
 
